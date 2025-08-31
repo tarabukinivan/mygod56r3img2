@@ -4,7 +4,7 @@ from copy import deepcopy
 
 DPO_CONFIG = {
     "0_1_b": {
-        "lr": 1.6e-5,
+        "lr": 2.0e-5,
         "distributed": "ddp",
         "gpu_count": 1,
         "batch_size": 16,
@@ -157,7 +157,7 @@ def get_run_cmd(config: dict, gpu_nums: int):
     --save_strategy no \
     --logging_steps 5 \
     --learning_rate {learning_rate} \
-    --weight_decay 0. \
+    --weight_decay 0.01 \
     --warmup_steps 35 \
     --lr_scheduler_type cosine_with_min_lr \
     --lr_scheduler_kwargs "{\\"min_lr_rate\\": {min_lr_rate}}" \
