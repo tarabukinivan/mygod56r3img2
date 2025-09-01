@@ -4,21 +4,21 @@ from copy import deepcopy
 
 GRPO_CONFIG = {
     "0_1_b": {
-        "lr": 0.00015,
+        "lr": 0.00021,
         "distributed": "ddp",
         "gpu_count": 1,
         "batch_size": 40,
         "vllm_gpu_memory_utilization": 0.4
     },
     "1_2_b": {
-        "lr": 7.5e-5,
+        "lr": 10e-5,
         "distributed": "ddp",
         "gpu_count": 1,
         "batch_size": 40,
         "vllm_gpu_memory_utilization": 0.4
     },
     "2_4_b": {
-        "lr": 8e-5,
+        "lr": 8.1e-5,
         "distributed": "ddp",
         "gpu_count": 2,
         "batch_size": 42,
@@ -50,7 +50,7 @@ GRPO_CONFIG = {
         "vllm_gpu_memory_utilization": 0.5
     },
     "9_12_b": {
-        "lr": 6.5e-5,   
+        "lr": 6.7e-5,   
         "distributed": "ddp",
         "gpu_count": 4,
         "use_lora": True,
@@ -80,7 +80,7 @@ GRPO_CONFIG = {
         "gpu_count": 8,
         "use_lora": True,
         "batch_size": 16,
-        "vllm_gpu_memory_utilization": 0.6,
+        "vllm_gpu_memory_utilization": 0.61,
         "use_vllm": False,
         "use_4bit": True
     },
@@ -90,7 +90,7 @@ GRPO_CONFIG = {
         "gpu_count": 8,
         "use_lora": True,
         "batch_size": 2,
-        "vllm_gpu_memory_utilization": 0.7,
+        "vllm_gpu_memory_utilization": 0.71,
         "use_vllm": False,
         "use_4bit": True
     }
@@ -184,7 +184,7 @@ def get_run_cmd(config: dict, gpu_nums: int):
     --save_strategy no \
     --logging_steps 5 \
     --learning_rate {learning_rate} \
-    --weight_decay 0. \
+    --weight_decay 0.01 \
     --warmup_steps 35 \
     --lr_scheduler_type cosine_with_min_lr \
     --lr_scheduler_kwargs "{\\"min_lr_rate\\": {min_lr_rate}}" \
