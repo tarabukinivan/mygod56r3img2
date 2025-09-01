@@ -27,25 +27,25 @@ INSTRUCT_CONFIG = {
         "batch_size": 100,
     },
     "2_4_b": {
-        "lr": 7.5e-5,
+        "lr": 8.1e-5,
         "distributed": "ddp",
         "gpu_count": 1,
         "batch_size": 48,
     },
     "4_5_b": {
-        "lr": 7e-5,
+        "lr": 6.3e-5,
         "distributed": "ddp",
         "gpu_count": 2,
         "batch_size": 40,
     },
     "5_9_b": {
-        "lr": 3.5e-5,
+        "lr": 5.7e-5,
         "distributed": "ddp",
         "gpu_count": 2,
         "batch_size": 28,
     },
     "9_12_b": {
-        "lr": 1e-4,
+        "lr": 1.5e-4,
         "distributed": "ddp",
         "gpu_count": 2,
         "use_lora": True,
@@ -152,7 +152,7 @@ def get_run_cmd(config: dict, gpu_nums: int):
     --save_strategy epoch \
     --logging_steps 5 \
     --learning_rate {learning_rate} \
-    --weight_decay 0. \
+    --weight_decay 0.01 \
     --warmup_steps 35 \
     --lr_scheduler_type cosine_with_min_lr \
     --lr_scheduler_kwargs "{\\"min_lr_rate\\": {min_lr_rate}}" \
